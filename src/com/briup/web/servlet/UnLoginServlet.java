@@ -26,7 +26,8 @@ public class UnLoginServlet extends HttpServlet {
 			System.out.println("登录的用户"+customer);
 			session.setAttribute("user", null);
 			System.out.println(session.getAttribute("user"));
-			response.sendRedirect("../index.jsp");
+//			response.sendRedirect("../index.jsp");
+			request.getRequestDispatcher("/servlet/CategoryServlet").forward(request, response);
 		}else{
 			response.sendRedirect("../login.jsp");
 		}

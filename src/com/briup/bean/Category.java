@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Êé¼®Àà±ð
+ * ï¿½é¼®ï¿½ï¿½ï¿½
  */
 public class Category {
 	private Integer id;
 	private String name;
 	private String info;
+	private Integer category_id;
 	
-	//Ò»Àà ÖÐ ¿ÉÒÔ°üº¬ºÜ¶àÊé¼®
+	//Ò»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ô°ï¿½ï¿½ï¿½ï¿½Ü¶ï¿½ï¿½é¼®
 	private List<Book> books = new ArrayList<>();
 	
 	public Category() {
@@ -25,6 +26,14 @@ public class Category {
 		this.id = id;
 		this.name = name;
 		this.info = info;
+	}
+	
+	public Category(Integer id, String name, String info, Integer category_id) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.info = info;
+		this.category_id = category_id;
 	}
 	public Category(Integer id, String name, String info, List<Book> books) {
 		this.id = id;
@@ -49,10 +58,18 @@ public class Category {
 	public String getInfo() {
 		return info;
 	}
+	
+	public Integer getCategory_id() {
+		return category_id;
+	}
+	public void setCategory_id(Integer category_id) {
+		this.category_id = category_id;
+	}
 	public void ListInfo(String info) {
 //		System.out.println("ListInfo()...");
 		this.info = info;
 	}
+	
 	public List<Book> getBooks() {
 		return books;
 	}
@@ -63,6 +80,7 @@ public class Category {
 	
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", info=" + info + ", books.size: " + (books != null ? books.size() : 0) + "]";
+		return "Category [id=" + id + ", name=" + name + ", info=" + info + ", category_id=" + category_id + ", books="
+				+ books + "]";
 	}
 }

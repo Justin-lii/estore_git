@@ -1,10 +1,15 @@
+<%@page import="java.util.*"%>
+<%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.briup.bean.Category"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
  String path = request.getContextPath();//  /estore
  String basePath = request.getScheme()
          +"://"+request.getServerName()
          +":"+request.getServerPort()+path+"/";
+ int i = 0;
  //http://127.0.0.1:8880/estore/
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -41,11 +46,13 @@
                 <span>搜索</span>
             </div>
             <p>
-                <a href="#">文学类</a>|
-                <a href="#">教育类</a>|
+                <c:forEach items="${map}" var="entry">    
+				  <a href="#">${entry.key.name }类</a>|  
+				</c:forEach>   
+               <!--  <a href="#">教育类</a>|
                 <a href="#">计算机</a>|
                 <a href="#">儿童类</a>|
-                <a href="#">漫画类</a>|
+                <a href="#">漫画类</a>| -->
             </p>
         </div>
         <div class="h3_right">
@@ -66,11 +73,9 @@
                 全部图书分类
             </div>
             <ul>
-                <li><a href="#">文学类</a></li>
-                <li><a href="#">教育类</a></li>
-                <li><a href="#">计算机</a></li>
-                <li><a href="#">儿童类</a></li>
-                <li><a href="#">漫画类</a></li>
+                <c:forEach items="${map}" var="keys">    
+                  <li><a href="#">${keys.key.name }类</a></li>
+                </c:forEach>
             </ul>
         </div>
     </div>
@@ -79,33 +84,16 @@
         <div class="c3_b1">
             <div class="c3_b1_left">
                 <dl>
-                    <dd>
-                        <h1>文学类</h1>
-                        <p>
-                            <a href="list.html">文学</a>
-                            <a href="list.html">文学</a>
-                            <a href="list.html">文学</a>
-                            <a href="list.html">文学</a>
-                        </p>
-                    </dd>
-                    <dd>
-                        <h1>教育类</h1>
-                        <p>
-                            <a href="list.html">教育</a>
-                            <a href="list.html">教育</a>
-                            <a href="list.html">教育</a>
-                            <a href="list.html">教育</a>
-                        </p>
-                    </dd>
-                    <dd>
-                        <h1>计算机</h1>
-                        <p>
-
-                            <a href="list.html">计算机</a>
-                            <a href="list.html">计算机</a>
-                            <a href="list.html">计算机</a>
-                        </p>
-                    </dd>
+                   <c:forEach items="${map}" var="entr">  
+                    <dd>  
+	                  <h1>${entr.key.name }类</h1>
+	                  <p>
+		                  <c:forEach items="${entr.value}" var="val">    
+		                      <a href="list.jsp">${val.name }</a>
+		                    </c:forEach>
+		                </p>
+		               </dd> 
+	                </c:forEach>
                 </dl>
             </div>
             <div class="c3_b1_center">

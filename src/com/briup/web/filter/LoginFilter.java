@@ -32,22 +32,19 @@ public class LoginFilter implements Filter{
 		if(urlString.endsWith("login.jsp")||urlString.endsWith("servlet/LoginServlet")||urlString.endsWith("register.jsp")) {
 			chain.doFilter(request, response);
 			return;
-		}else if(urlString.endsWith("index.jsp")) {//放行首页
+		}/*else if(urlString.endsWith("index.jsp")) {//放行首页
 			if(session.getAttribute("user")!=null) { 
-//				request.setAttribute("login", "退出");
 				session.setAttribute("login", "退出");
 			}else { 
-//				request.setAttribute("login", "登录");
 				session.setAttribute("login", "登录");
 			}
 			chain.doFilter(request, response);
 			return;
-		}
+		}*/
 		if(session.getAttribute("user")!=null) {
 			chain.doFilter(request, response);
 		}else {
 			response.sendRedirect("/estore_git/login.jsp");
-//			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 

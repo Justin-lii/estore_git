@@ -1,19 +1,22 @@
 package com.briup.dao;
 
 import java.util.List;
+import java.util.Map;
+
 import com.briup.bean.Category;
 
 public interface CategoryDao {
 	
-	public List<Category> findAllCategories();
+//	public List<Category> findAllCategories();
+	public Map<Category,List<Category>> findAllCategories();
 	
 	/*
-	 * ²éÑ¯ËùÓĞµÄ·ÖÀàÒÔ¼°·ÖÀàÏÂËùÓĞÍ¼Êé
+	 * æŸ¥è¯¢æ‰€æœ‰çš„åˆ†ç±»ä»¥åŠåˆ†ç±»ä¸‹æ‰€æœ‰å›¾ä¹¦
 	 */
 	public List<Category> findAllCategoryWithBooks();
-	
+
 	/*
-	 * Í¨¹ıid²éÑ¯·ÖÀàÒÔ¼°¸Ã·ÖÀàÏÂµÄËùÓĞÍ¼Êé
+	 * é€šè¿‡idæŸ¥è¯¢åˆ†ç±»ä»¥åŠè¯¥åˆ†ç±»ä¸‹çš„æ‰€æœ‰å›¾ä¹¦
 	 */
 	public Category findCategoryWithBooksById(int id);
 

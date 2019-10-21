@@ -30,15 +30,6 @@
                     <h1>账号登陆</h1>
                     <h2>公共场所请不要泄露您的密码，以防止账号丢失
                     </h2>
-                    <span style="color: red;font-size: 15px;padding-left: 40px;">
-                    <%
-                     if(request.getAttribute("info")!=null){
-                         %>
-                         <%=request.getAttribute("info") %>
-                         <%
-                     }
-                     %>
-                    </span>
                     <div class="si_box">
                         <span class="usr_icon"></span>
                         <input type="text" name="name"/>
@@ -50,7 +41,17 @@
                         <input type="password" name="password"/>
                     </div>
                     <div class="fg_box">
-                        <a class="treg" href="register.html">立即注册</a>
+                        <span style="color: red;font-size: 15px;padding-left: 40px;">
+                    <%-- <%
+                     if(request.getAttribute("info")!=null){
+                         %>
+                         <%=request.getAttribute("info") %>
+                         <%
+                     }
+                     %> --%>
+                     ${info }
+                    </span>
+                        <a class="treg" href="register.jsp">立即注册</a>
                     </div>
                     <div class="sub_box">
                         <input type="submit" value="登陆"/>

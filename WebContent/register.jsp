@@ -35,13 +35,14 @@
             <form action="servlet/RegisterServlet" method="post">
             <ul class="reg_box">
                     <span style="color: red;font-size: 20px;padding-left: 150px;">
-                    <%
+                   <%--  <%
 		             if(request.getAttribute("info")!=null){
 		                 %>
 		                 <%=request.getAttribute("info") %>
 		                 <%
 		             }
-		             %>
+		             %> --%>
+		              ${info }
                     </span>
                 <li>
                     <span><b>*</b>用户名：</span>
